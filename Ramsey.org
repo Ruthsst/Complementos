@@ -1,4 +1,4 @@
-#+title: Gráficas crpiticas de Ramsey
+#+title: Gráficas criticas de Ramsey
 
 #+property: header-args:ipython :session complementos :results raw drawer
 
