@@ -1,0 +1,87 @@
+#+title: Gráficas crpiticas de Ramsey
+
+#+property: header-args:ipython :session complementos :results raw drawer
+
+Estudiaremos las gráficas de 8 veértices cuyo número de clan es menor
+o igual a 3 y el hnúmero de su complemento es menor o iigul a 2.
+
+#+begin_src ipython
+%matplotlib inline
+import networkx as nx
+import matplotlib.pyplot as plt
+from pycliques.lists import enlist_graphs
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[2]:
+:end:
+
+#+begin_src ipython
+lista8=enlist_graphs(8)
+lista8_cR=[g for g in lista8 if nx.graph_clique_number(g)<=3 and nx.graph_clique_number(nx.complement(g))<=2]
+len(lista6_d2)
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[15]:
+: 3
+:end:
+
+#+begin_src ipython
+[nx.number_of_edges(g) for g in lista8_cR]
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[17]:
+: [16, 17, 18]
+:end:
+
+#+begin_src ipython
+plt.figure(figsize=(10,3))
+
+for i in range(3):
+    index=130+i+1
+    plt.subplot(index)
+    nx.draw(lista8_cR[i])
+
+plt.show()
+
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[22]:
+[[file:./obipy-resources/1848KiM.png]]
+:end:
+
+#+begin_src ipython
+lista8_cR_complement=[nx.complement(g) for g in lista8_cR]
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[23]:
+:end:
+
+#+begin_src ipython
+
+plt.figure(figsize=(10,3))
+
+for i in range(3):
+    index=130+i+1
+    plt.subplot(index)
+    nx.draw(lista8_cR_complement[i])
+
+plt.show()
+
+#+end_src
+
+#+RESULTS:
+:results:
+# Out[24]:
+[[file:./obipy-resources/1848XsS.png]]
+:end:
+
